@@ -1,0 +1,153 @@
+:root {
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --max-w: 800px;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+    --color-bg: #f6f7fb;
+    --color-surface: #ffffff;
+    --color-text: #1b1f24;
+    --color-muted: #6b7280;
+    --color-primary: #2563eb; /* blue-600 */
+    --color-primary-600: #1d4ed8; /* blue-700 */
+    --color-border: #e5e7eb;
+  }
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+    margin: var(--space-3);
+    background: radial-gradient(1200px 600px at 20% -10%, #e8f0ff, transparent),
+                radial-gradient(1200px 600px at 100% 0%, #f3e8ff, transparent),
+                var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #toggleBox {
+    padding: 10px;
+    background: lightblue;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  main, body > div {
+    max-width: var(--max-w);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+  
+  section + section, div + div {
+    margin-top: var(--space-3);
+  }
+  
+  /* Typography */
+  h1 {
+    font-size: clamp(1.6rem, 0.9rem + 2vw, 2.2rem);
+    text-align: center;
+    margin-bottom: var(--space-3);
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2);
+  }
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-1);
+    color: var(--color-muted);
+  }
+  p, label {
+    font-size: 0.975rem;
+  }
+
+  /* Section cards */
+  section {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 160ms ease, transform 160ms ease;
+  }
+  section:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  /* Forms */
+  form {
+    display: grid;
+    gap: var(--space-2);
+    align-items: start;
+  }
+  label {
+    color: var(--color-muted);
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="search"],
+  textarea, select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    color: var(--color-text);
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+  }
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+
+  /* Buttons */
+  button {
+    appearance: none;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-primary);
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease;
+  }
+  button:hover,
+  button:focus-visible {
+    background: var(--color-primary-600);
+    border-color: var(--color-primary-600);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+    outline: none;
+    transform: translateY(-1px);
+  }
+  button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  /* Lists */
+  ul {
+    list-style: disc inside;
+    padding-left: var(--space-2);
+  }
+  ul li { padding: 2px 0; }
+
+  /* Responsive */
+  @media (max-width: 560px) {
+    body { margin: var(--space-2); }
+    section { padding: var(--space-2); }
+  }
+  
