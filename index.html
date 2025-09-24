@@ -1,65 +1,102 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mastering JavaScript Fundamentals</title>
+  <title>Interactive Web Pages with JavaScript</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <meta name="description" content="Event handling, interactive UI components, and custom form validation using JavaScript.">
 </head>
 <body>
-  <h1 id="pageTitle">JavaScript Fundamentals</h1>
+  <header class="site-header">
+    <h1>Interactive Web Pages with JavaScript</h1>
+    <p class="subtitle">Events · Interactive UI · Validation</p>
+  </header>
 
   <main>
-    <!-- Part 1: User Input -->
-    <section>
-      <form id="greetForm" autocomplete="off">
-        <label for="userName">Enter your name:</label>
-        <input type="text" id="userName">
-        <button type="submit">Greet</button>
+    <!-- Part 1: Event Handling Playground -->
+    <section id="events" class="card">
+      <h2>🎉 Part 1: Event Handling Playground</h2>
+      <p>Try clicking, hovering, and typing to see live feedback below.</p>
+      <div class="grid-2">
+        <div>
+          <button id="clickMeBtn" type="button">Click Me</button>
+          <button id="dblClickBtn" type="button">Double-Click Me</button>
+          <button id="mouseOverBtn" type="button">Hover Over Me</button>
+        </div>
+        <div>
+          <label for="keyInput">Type here:</label>
+          <input id="keyInput" type="text" placeholder="Start typing...">
+        </div>
+      </div>
+      <div class="log" id="eventLog" aria-live="polite"></div>
+    </section>
+
+    <!-- Part 2: Interactive Elements -->
+    <section id="interactives" class="card">
+      <h2>🎮 Part 2: Interactive Elements</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Light / Dark Mode</h3>
+          <button id="themeToggle" type="button" aria-pressed="false">Toggle Dark Mode</button>
+        </div>
+        <div>
+          <h3>Counter</h3>
+          <div class="counter">
+            <button id="decrementBtn" type="button" aria-label="Decrement">−</button>
+            <output id="counterValue" aria-live="polite">0</output>
+            <button id="incrementBtn" type="button" aria-label="Increment">+</button>
+          </div>
+          <button id="resetCounter" type="button">Reset</button>
+        </div>
+      </div>
+
+      <div class="faq">
+        <h3>Collapsible FAQ</h3>
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq1" id="q1">What is event handling?</button>
+          <div id="faq1" class="accordion-panel" role="region" aria-labelledby="q1">Listening to user actions (clicks, keys, hovers) and responding with code.</div>
+
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq2" id="q2">How do toggles work?</button>
+          <div id="faq2" class="accordion-panel" role="region" aria-labelledby="q2">They switch UI state by adding/removing classes or attributes.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 3: Form Validation -->
+    <section id="validation" class="card">
+      <h2>📋✅ Part 3: Form Validation</h2>
+      <p>Custom client-side validation with helpful error messages.</p>
+      <form id="signupForm" novalidate>
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Doe">
+          <p class="error" id="nameError"></p>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="jane@example.com">
+          <p class="error" id="emailError"></p>
+        </div>
+        <div class="form-row">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="At least 8 chars, 1 number">
+          <p class="error" id="passwordError"></p>
+        </div>
+        <div class="form-row">
+          <label for="confirm">Confirm Password</label>
+          <input id="confirm" name="confirm" type="password" placeholder="Re-type your password">
+          <p class="error" id="confirmError"></p>
+        </div>
+        <button id="submitBtn" type="submit">Create Account</button>
+        <p class="success" id="formSuccess" role="status" aria-live="polite"></p>
       </form>
-      <p id="greeting" tabindex="-1"></p>
-    </section>
-
-    <!-- Part 2: Functions -->
-    <section>
-      <h2>Functions</h2>
-      <div>
-        <h3>Calculate Total</h3>
-        <form id="totalForm" autocomplete="off">
-          <label for="price">Price:</label>
-          <input type="number" id="price" min="0" step="0.01">
-          <label for="quantity">Quantity:</label>
-          <input type="number" id="quantity" min="0" step="1">
-          <button type="submit">Compute</button>
-        </form>
-        <p id="totalResult" aria-live="polite"></p>
-      </div>
-
-      <div>
-        <h3>Format String</h3>
-        <form id="formatForm" autocomplete="off">
-          <label for="rawText">Text:</label>
-          <input type="text" id="rawText">
-          <button type="submit">Format</button>
-        </form>
-        <p id="formatResult" aria-live="polite"></p>
-      </div>
-    </section>
-
-    <!-- Part 3: Loop Example -->
-    <section>
-      <h2>Countdown</h2>
-      <button id="countdownBtn" type="button">Start Countdown</button>
-      <ul id="countdownList"></ul>
-    </section>
-
-    <!-- Part 4: DOM Interaction -->
-    <section>
-      <h2>Toggle Box</h2>
-      <button id="toggleBtn" type="button" aria-controls="toggleBox" aria-expanded="false">Show/Hide Box</button>
-      <div id="toggleBox" class="hidden" tabindex="-1">🎉 Surprise! 🎉</div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Interactive JS Assignment</p>
+  </footer>
 </body>
 </html>
